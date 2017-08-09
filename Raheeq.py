@@ -166,6 +166,26 @@ def move_truck2():
     truck2.clearstamp(old_stamp)
     pos_list_2.pop(0)
 
+score_turtle1=turtle.clone()
+score1=0
+def counter1():
+    global score1
+    score+=1
+    score_turtle1.clear()
+    score_turtle1.write(score)
+    score_turtle1.goto(390,240)
+    
+score_turtle2=0
+score2=0
+def counter2():
+    global score2
+    score+=1
+    score_turtle2.clear()
+    score_turtle2.write(score)
+    score_turtle2.goto(-390,-240)
+    
+
+    
 
 
 
