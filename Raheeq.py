@@ -166,6 +166,7 @@ def move_truck2():
     truck2.clearstamp(old_stamp)
     pos_list_2.pop(0)
 
+<<<<<<< HEAD
 score_turtle1=turtle.clone()
 score1=0
 def counter1():
@@ -186,6 +187,10 @@ def counter2():
     
 
     
+=======
+    turtle.ontimer(move_truck1,TIME_STEP)
+    move_truck1()
+
 
 
 
