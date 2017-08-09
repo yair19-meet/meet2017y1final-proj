@@ -8,6 +8,10 @@ SIZE_Y=500
 
 turtle.setup(SIZE_X,SIZE_Y)
 TIME_STEP = 1500
+RIGHT_EDGE=400
+LEFT_EDGE=-400
+UP_EDGE=250
+DOWN_EDGE=-250
 
 turtle.bgcolor ('gray')
 
@@ -125,6 +129,7 @@ turtle.onkeypress(up_2, W)
 turtle.onkeypress(down_2, S)
 turtle.onkeypress(left_2, A)    
 turtle.onkeypress(right_2, D)
+
 turtle.listen()
 
 def move_truck1():
@@ -171,7 +176,10 @@ def move_truck1():
         unhealthy_food_pos.pop(food3_ind) #remove eaten food position
         unhealthy_food_stamps.pop(food3_ind) #remove eaten food stamp
         print("you have eaten the unhealthy food!")
-    
+        counter3()
+
+
+    #turtle.ontimer(move_truck1,TIME_STEP)
     
 
 
@@ -181,6 +189,7 @@ def move_truck2():
     x_pos_2 = my_pos_2[0]
     y_pos_2 = my_pos_2[1]
 
+    
     
 
     if direction_2 == RIGHT:
@@ -222,6 +231,7 @@ def move_truck2():
         unhealthy_food_pos.pop(food4_ind) #remove eaten food position
         unhealthy_food_stamps.pop(food4_ind) #remove eaten food stamp
         print("you have eaten the unhealthy food!")
+        counter4()
     
     #turtle.ontimer(move_truck2,TIME_STEP)
 
@@ -247,6 +257,22 @@ def counter1():
             score_turtle1.goto(330,230)
             score_turtle1.write("SCORE: " +str(score1))
 
+
+def counter3():
+            global score1
+            score1-=2
+            score_turtle1.clear()
+            score_turtle1.goto(330,230)
+            score_turtle1.write("SCORE: " +str(score1),font=("Arial",8,"normal"))
+
+
+def counter4():
+            global score2
+            score2-=2
+            score_turtle2.clear()
+            score_turtle2.goto(-390,-240)
+            score_turtle2.write("SCORE: " +str(score2))
+    
 turtle.hideturtle()
 
 
@@ -325,15 +351,29 @@ make_unhealthyfood()
 
 
 time_turtle=turtle.clone()
+winner_turtle = turtle.clone()
 
-s = 60
+s = 10
 def timer():
     global s
     time_turtle.clear()
+    time_turtle.goto(-390,235)
     time_turtle.write(str(s))
     s-=1
     turtle.ontimer(timer,1000)
+    if s==0 and score1>score2:
+        #break
+        winner_turtle.pencolor('yellow')
+        winner_turtle.write("congratulations Truck1! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
+    elif s==0 and score2>score1:
+        #break
+        winner_turtle.pencolor('green')
+        winner_turtle.write("congratulations Truck2! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
+        
+        
+    
 timer()
+
 
 ##def timer():
 ##    for m in range (1):
