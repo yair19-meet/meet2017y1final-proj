@@ -166,6 +166,8 @@ def move_truck2():
     truck2.clearstamp(old_stamp)
     pos_list_2.pop(0)
 
+    turtle.ontimer(move_truck1,TIME_STEP)
+    move_truck1()
 
 
 
