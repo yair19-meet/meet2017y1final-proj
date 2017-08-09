@@ -133,6 +133,8 @@ turtle.onkeypress(right_2, D)
 turtle.listen()
 
 def move_truck1():
+    global EDGE_RIGHT
+    global
     global pos_list_1
     my_pos_1 = truck1.pos()
     x_pos_1 = my_pos_1[0]
@@ -152,6 +154,8 @@ def move_truck1():
     elif direction_1 == DOWN:
         truck1.goto(x_pos_1, y_pos_1- SQUARE_SIZE)
         print("You moved Down!")
+
+    if 
 
     my_pos_1 = truck1.pos()
     pos_list_1.append(my_pos_1)
@@ -369,6 +373,8 @@ def timer():
         #break
         winner_turtle.pencolor('green')
         winner_turtle.write("congratulations Truck2! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
+
+        
         
         
     
