@@ -3,6 +3,7 @@ import random #It will be useful for later
 import time
 
 
+
 SIZE_X=800
 SIZE_Y=500
 
@@ -66,7 +67,7 @@ UP_ARROW = "Up"
 LEFT_ARROW = "Left"
 DOWN_ARROW = "Down"
 RIGHT_ARROW = "Right"
-
+SPACEBAR="space"
 W = "w"
 A = "a"
 S = "s"
@@ -75,6 +76,7 @@ D = "d"
 
 direction_1 = DOWN
 direction_2 = DOWN
+
 
 def up_1():
     global direction_1
@@ -133,8 +135,8 @@ turtle.onkeypress(right_2, D)
 turtle.listen()
 
 def move_truck1():
-    global EDGE_RIGHT
-    global
+    global RIGHT_EDGE
+    global LEFT_EDGE
     global pos_list_1
     my_pos_1 = truck1.pos()
     x_pos_1 = my_pos_1[0]
@@ -155,7 +157,16 @@ def move_truck1():
         truck1.goto(x_pos_1, y_pos_1- SQUARE_SIZE)
         print("You moved Down!")
 
-    if 
+    if x_pos_1 >= RIGHT_EDGE:
+        truck1.goto(LEFT_EDGE + SQUARE_SIZE, y_pos_1)
+    if x_pos_1 <= LEFT_EDGE:
+        truck1.goto(RIGHT_EDGE - SQUARE_SIZE, y_pos_1)
+    if y_pos_1 >= UP_EDGE:
+        truck1.goto(x_pos_1, DOWN_EDGE + SQUARE_SIZE)
+    if y_pos_1 <= DOWN_EDGE:
+        truck1.goto(x_pos_1, UP_EDGE - SQUARE_SIZE )
+        
+
 
     my_pos_1 = truck1.pos()
     pos_list_1.append(my_pos_1)
@@ -208,6 +219,18 @@ def move_truck2():
     elif direction_2 == DOWN:
         truck2.goto(x_pos_2, y_pos_2 - SQUARE_SIZE)
         print("You moved Down!")
+
+    if x_pos_2 >= RIGHT_EDGE:
+        truck2.goto(LEFT_EDGE + SQUARE_SIZE, y_pos_2)
+    if x_pos_2 <= LEFT_EDGE:
+        truck2.goto(RIGHT_EDGE - SQUARE_SIZE, y_pos_2)
+    if y_pos_2 >= UP_EDGE:
+        truck2.goto(x_pos_2, DOWN_EDGE + SQUARE_SIZE)
+    if y_pos_2 <= DOWN_EDGE:
+        truck2.goto(x_pos_2, UP_EDGE - SQUARE_SIZE )
+        
+
+
 
     my_pos_2 = truck2.pos()
     pos_list_2.append(my_pos_2)
@@ -357,7 +380,7 @@ make_unhealthyfood()
 time_turtle=turtle.clone()
 winner_turtle = turtle.clone()
 
-s = 10
+s = 60
 def timer():
     global s
     time_turtle.clear()
@@ -366,14 +389,14 @@ def timer():
     s-=1
     turtle.ontimer(timer,1000)
     if s==0 and score1>score2:
-        #break
+        
         winner_turtle.pencolor('yellow')
         winner_turtle.write("congratulations Truck1! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
+        
     elif s==0 and score2>score1:
-        #break
         winner_turtle.pencolor('green')
         winner_turtle.write("congratulations Truck2! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
-
+        
         
         
         
