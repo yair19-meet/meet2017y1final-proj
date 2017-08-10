@@ -48,7 +48,6 @@ healthy_food = turtle.clone()
 turtle.register_shape("apple.gif") #add apple picture
 healthy_food.shape("apple.gif")
 
-
 pos_list_1 = []
 pos_list_2 = []
 #Initialize lists
@@ -317,9 +316,8 @@ for this_healthy_food_pos in healthy_food_pos:
 
 
 unhealthy_food = turtle.clone()
-turtle.register_shape("hot-dog-animated-gif-12.gif") #add chips picture 
-unhealthy_food.shape("hot-dog-animated-gif-12.gif")
-
+turtle.register_shape("frygif.gif") #add chips picture 
+unhealthy_food.shape("frygif.gif")
 
 #unhealthy_food_pos = [(-100,100)]
 #unhealthy_food_stamps = []
