@@ -16,11 +16,10 @@ UP_EDGE=250
 DOWN_EDGE=-250
 
 
-<<<<<<< HEAD
-turtle.bgpic("space2.gif")
-=======
+
+
 turtle.bgpic("space3.gif")
->>>>>>> fb1d424e731f643ab6289f54e4326ec388806c50
+
 stamp_list1=[]
 stamp_list2=[]
 pos_list_1=[]
@@ -290,11 +289,11 @@ def counter1():
             score_turtle1.clear()
             score_turtle1.goto(290,220)
             score_turtle1.pencolor('yellow')
-<<<<<<< HEAD
+
             score_turtle1.write("SCORE: " +str(score1),  font=("Arial",15,"normal"))
-=======
+
             score_turtle1.write("SCORE: " +str(score1),font=("Arial",15,"normal"))
->>>>>>> fb1d424e731f643ab6289f54e4326ec388806c50
+
 
 
 def counter3():
@@ -312,11 +311,8 @@ def counter4():
             score_turtle2.clear()
             score_turtle2.goto(-370,-220)
             score_turtle2.pencolor('green')
-<<<<<<< HEAD
-            score_turtle2.write("SCORE: " +str(score2), font=("Arial",15,"normal"))
-=======
             score_turtle2.write("SCORE: " +str(score2),font=("Arial",15,"normal"))
->>>>>>> fb1d424e731f643ab6289f54e4326ec388806c50
+
     
 turtle.hideturtle()
 
@@ -400,17 +396,7 @@ winner_turtle = turtle.clone()
 
 s = 60
 def timer():
-    
     global s
-<<<<<<< HEAD
-    time_turtle.clear()
-    time_turtle.goto(-390,220)
-    time_turtle.pencolor('red')
-    time_turtle.write(str(s), font=("Arial",20,"normal"))
-    s-=1
-    turtle.ontimer(timer,1000)
-    if s==0 and score1>score2:
-=======
     if s >= 0:
         time_turtle.clear()
         time_turtle.goto(-390,220)
@@ -423,31 +409,26 @@ def timer():
         
 
     if s<0 and score1>score2:
->>>>>>> fb1d424e731f643ab6289f54e4326ec388806c50
         winner_turtle.pencolor('yellow')
         winner_turtle.write("Congratulations Truck1! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
         
     elif s<0 and score2>score1:
         winner_turtle.pencolor('green')
-<<<<<<< HEAD
-        winner_turtle.write("congratulations Truck2! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
-        
-
-=======
         winner_turtle.write("Congratulations Truck2! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
     elif s<0:
         winner_turtle.pencolor('blue')
         winner_turtle.write("It's a tie! Well done to both of you!", align="center", font=("Arial",20,"normal"))
-        #time_turtle.clear()
-        #s = 30
-        #time_turtle.write(str(s))
-        #winner_turtle.clear()
-        #s-=1
-        #timer()
-            
+
+
+def crash():
+    if my_pos_1 == my_pos_2:
+        truck1.goto(my_pos_1[0]+SQUARE_SIZE*10, my_pos_1[1])
+        truck2.goto(my_pos_2[0]-SQUARE_SIZE*10, my_pos_2[1])
 
         
->>>>>>> fb1d424e731f643ab6289f54e4326ec388806c50
+          
+
+        
         
         
     
