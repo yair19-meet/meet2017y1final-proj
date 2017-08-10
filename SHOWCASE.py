@@ -397,22 +397,6 @@ winner_turtle = turtle.clone()
 s = 60
 def timer():
     global s
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-=======
-<<<<<<< HEAD
->>>>>>> e859b2c4f9ce4fe3c6763d6e3aff172d91067c8e
-    time_turtle.clear()
-    time_turtle.goto(-390,220)
-    time_turtle.pencolor('red')
-    time_turtle.write(str(s), font=("Arial",20,"normal"))
-    s-=1
-    turtle.ontimer(timer,1000)
-    if s==0 and score1>score2:
-=======
-=======
->>>>>>> 27006fc97d9650e3965575d9cfbf5bdc0c8de53f
     if s >= 0:
         time_turtle.clear()
         time_turtle.goto(-390,220)
