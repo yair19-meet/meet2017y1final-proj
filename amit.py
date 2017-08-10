@@ -383,6 +383,7 @@ winner_turtle = turtle.clone()
 s = 60
 def timer():
     global s
+    
     time_turtle.clear()
     time_turtle.goto(-390,235)
     time_turtle.write(str(s))
