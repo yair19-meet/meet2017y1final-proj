@@ -7,6 +7,7 @@ import time
 SIZE_X=800
 SIZE_Y=500
 
+
 turtle.setup(SIZE_X,SIZE_Y)
 TIME_STEP = 1500
 RIGHT_EDGE=400
@@ -15,7 +16,11 @@ UP_EDGE=250
 DOWN_EDGE=-250
 
 
+<<<<<<< HEAD
 turtle.bgpic("space2.gif")
+=======
+turtle.bgpic("space3.gif")
+>>>>>>> fb1d424e731f643ab6289f54e4326ec388806c50
 stamp_list1=[]
 stamp_list2=[]
 pos_list_1=[]
@@ -74,31 +79,31 @@ S = "s"
 D = "d"
 
 
-direction_1 = DOWN
-direction_2 = DOWN
+direction_1 = LEFT
+direction_2 = RIGHT
 
 
 def up_1():
     global direction_1
     direction_1 = UP
-    move_truck1()
+    #move_truck1()
     
 
 def down_1():
     global direction_1
     direction_1 = DOWN
-    move_truck1()
+    #move_truck1()
     
 
 def left_1():
     global direction_1
     direction_1 = LEFT
-    move_truck1()
+    #move_truck1()
 
 def right_1():
     global direction_1
     direction_1 = RIGHT
-    move_truck1()
+    #move_truck1()
 
 
 turtle.onkeypress(up_1, UP_ARROW)
@@ -110,22 +115,22 @@ turtle.listen()
 def up_2():
     global direction_2
     direction_2 = UP
-    move_truck2()
+    #move_truck2()
 
 def down_2():
     global direction_2
     direction_2 = DOWN
-    move_truck2()
+    #move_truck2()
 
 def left_2():
     global direction_2
     direction_2 = LEFT
-    move_truck2()
+    #move_truck2()
 
 def right_2():
     global direction_2
     direction_2 = RIGHT
-    move_truck2()
+    #move_truck2()
 
 turtle.onkeypress(up_2, W)
 turtle.onkeypress(down_2, S)
@@ -138,6 +143,7 @@ def move_truck1():
     global RIGHT_EDGE
     global LEFT_EDGE
     global pos_list_1
+    global direction_1
     my_pos_1 = truck1.pos()
     x_pos_1 = my_pos_1[0]
     y_pos_1 = my_pos_1[1]
@@ -145,7 +151,7 @@ def move_truck1():
     
 
     if direction_1 == RIGHT:
-        truck1.goto(x_pos_1 + SQUARE_SIZE, y_pos_1)
+        truck1.goto(x_pos_1 + SQUARE_SIZE, y_pos_1) 
         print("You moved right!")
     elif direction_1 == LEFT:
         truck1.goto(x_pos_1 - SQUARE_SIZE, y_pos_1)
@@ -194,7 +200,7 @@ def move_truck1():
         counter3()
 
 
-    #turtle.ontimer(move_truck1,TIME_STEP)
+    turtle.ontimer(move_truck1,100)
     
 
 
@@ -260,7 +266,7 @@ def move_truck2():
         print("you have eaten the unhealthy food!")
         counter4()
     
-    #turtle.ontimer(move_truck2,TIME_STEP)
+    turtle.ontimer(move_truck2,100)
 
 
 score_turtle2=turtle.clone()
@@ -284,7 +290,11 @@ def counter1():
             score_turtle1.clear()
             score_turtle1.goto(290,220)
             score_turtle1.pencolor('yellow')
+<<<<<<< HEAD
             score_turtle1.write("SCORE: " +str(score1),  font=("Arial",15,"normal"))
+=======
+            score_turtle1.write("SCORE: " +str(score1),font=("Arial",15,"normal"))
+>>>>>>> fb1d424e731f643ab6289f54e4326ec388806c50
 
 
 def counter3():
@@ -302,7 +312,11 @@ def counter4():
             score_turtle2.clear()
             score_turtle2.goto(-370,-220)
             score_turtle2.pencolor('green')
+<<<<<<< HEAD
             score_turtle2.write("SCORE: " +str(score2), font=("Arial",15,"normal"))
+=======
+            score_turtle2.write("SCORE: " +str(score2),font=("Arial",15,"normal"))
+>>>>>>> fb1d424e731f643ab6289f54e4326ec388806c50
     
 turtle.hideturtle()
 
@@ -386,7 +400,9 @@ winner_turtle = turtle.clone()
 
 s = 60
 def timer():
+    
     global s
+<<<<<<< HEAD
     time_turtle.clear()
     time_turtle.goto(-390,220)
     time_turtle.pencolor('red')
@@ -394,17 +410,50 @@ def timer():
     s-=1
     turtle.ontimer(timer,1000)
     if s==0 and score1>score2:
-        winner_turtle.pencolor('yellow')
-        winner_turtle.write("congratulations Truck1! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
+=======
+    if s >= 0:
+        time_turtle.clear()
+        time_turtle.goto(-390,220)
+        time_turtle.pencolor('red')
+        time_turtle.write(str(s), font=("Arial",20,"normal"))
+        s-=1
+        turtle.ontimer(timer,1000)
+    
         
-    elif s==0 and score2>score1:
+        
+
+    if s<0 and score1>score2:
+>>>>>>> fb1d424e731f643ab6289f54e4326ec388806c50
+        winner_turtle.pencolor('yellow')
+        winner_turtle.write("Congratulations Truck1! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
+        
+    elif s<0 and score2>score1:
         winner_turtle.pencolor('green')
+<<<<<<< HEAD
         winner_turtle.write("congratulations Truck2! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
         
 
+=======
+        winner_turtle.write("Congratulations Truck2! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
+    elif s<0:
+        winner_turtle.pencolor('blue')
+        winner_turtle.write("It's a tie! Well done to both of you!", align="center", font=("Arial",20,"normal"))
+        #time_turtle.clear()
+        #s = 30
+        #time_turtle.write(str(s))
+        #winner_turtle.clear()
+        #s-=1
+        #timer()
+            
+
+        
+>>>>>>> fb1d424e731f643ab6289f54e4326ec388806c50
         
         
     
+
+move_truck1()
+move_truck2()    
 timer()
 
 turtle.mainloop()
