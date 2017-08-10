@@ -14,8 +14,8 @@ LEFT_EDGE=-400
 UP_EDGE=250
 DOWN_EDGE=-250
 
-turtle.bgcolor ('gray')
 
+turtle.bgpic("space2.gif")
 stamp_list1=[]
 stamp_list2=[]
 pos_list_1=[]
@@ -270,8 +270,9 @@ def counter2():
             global score2
             score2+=1
             score_turtle2.clear()
-            score_turtle2.goto(-390,-240)
-            score_turtle2.write("SCORE: " +str(score2))
+            score_turtle2.goto(-370,-220)
+            score_turtle2.pencolor('green')
+            score_turtle2.write("SCORE: " +str(score2), font=("Arial",15,"normal"))
             
             
 
@@ -281,24 +282,27 @@ def counter1():
             global score1
             score1+=1
             score_turtle1.clear()
-            score_turtle1.goto(330,230)
-            score_turtle1.write("SCORE: " +str(score1))
+            score_turtle1.goto(290,220)
+            score_turtle1.pencolor('yellow')
+            score_turtle1.write("SCORE: " +str(score1),  font=("Arial",15,"normal"))
 
 
 def counter3():
             global score1
             score1-=2
             score_turtle1.clear()
-            score_turtle1.goto(330,230)
-            score_turtle1.write("SCORE: " +str(score1),font=("Arial",8,"normal"))
+            score_turtle1.goto(290,220)
+            score_turtle1.pencolor('yellow')
+            score_turtle1.write("SCORE: " +str(score1),font=("Arial",15,"normal"))
 
 
 def counter4():
             global score2
             score2-=2
             score_turtle2.clear()
-            score_turtle2.goto(-390,-240)
-            score_turtle2.write("SCORE: " +str(score2))
+            score_turtle2.goto(-370,-220)
+            score_turtle2.pencolor('green')
+            score_turtle2.write("SCORE: " +str(score2), font=("Arial",15,"normal"))
     
 turtle.hideturtle()
 
@@ -384,12 +388,12 @@ s = 60
 def timer():
     global s
     time_turtle.clear()
-    time_turtle.goto(-390,235)
-    time_turtle.write(str(s))
+    time_turtle.goto(-390,220)
+    time_turtle.pencolor('red')
+    time_turtle.write(str(s), font=("Arial",20,"normal"))
     s-=1
     turtle.ontimer(timer,1000)
     if s==0 and score1>score2:
-        
         winner_turtle.pencolor('yellow')
         winner_turtle.write("congratulations Truck1! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
         
@@ -397,21 +401,12 @@ def timer():
         winner_turtle.pencolor('green')
         winner_turtle.write("congratulations Truck2! You've collected the most healthy food!", align="center", font=("Arial",20,"normal"))
         
-        
+
         
         
     
 timer()
 
-
-##def timer():
-##    for m in range (1):
-##        for s in range (60):
-##            time_turtle.clear()
-##            time_turtle.write(str(m) + ": " + str(s))
-##
-##            #time_turtle.sleep(1)
-##time()
 turtle.mainloop()
 
 
